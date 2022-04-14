@@ -1,40 +1,38 @@
-#grant davis
-#import library for pygame
+
+# import pygame and system features
 import pygame
 from settings import Settings
 from ship import Ship
 import game_functions as gf
 from pygame.sprite import Group
-from alien import Alien
 
-#define main game function
+
+# define main game function
 def alien_invasion():
-    #initialize library pygame
+    # initialize pygame library
     pygame.init()
-    #
+    # access settings
     settings = Settings()
-    #creates our display by inputting width and height of display
+    # create a display by inputting  width and height of screen
     screen = pygame.display.set_mode((settings.screen_width, settings.screen_height))
-    #
+    # names the displayed screen
     pygame.display.set_caption('Alien Invasion')
-    #add ship
+    # make a player ship
     ship = Ship(screen)
 
-
-    #make a group to store bullets in
+    # make a group to store bullets in
     bullets = Group()
     aliens = Group()
+    gf.create_fleet(settings, screen,ship, aliens)
 
-    #loop to start animation
+    # loop to start animation
     while True:
 
-        #access event handler
-        gf.check_events(ship)
-        #updates screen
-        gf.update_screen(settings, screen, ship, bullets)
-        # make an alien
-        a&walien = Alien(settings, screen)
-        a&walien.blitme()
+        # access event handler from game_functions
+        gf.check_events(settings, screen, ship, bullets)
+        # updates the screen from game_functions
+        gf.update_screen(settings, screen, ship, bullets, aliens)
 
-        bullets.updtate()
+
+
 alien_invasion()
