@@ -5,7 +5,7 @@ from settings import Settings
 from ship import Ship
 import game_functions as gf
 from pygame.sprite import Group
-from a&walien import Alien
+from alien import Alien
 
 #define main game function
 def alien_invasion():
