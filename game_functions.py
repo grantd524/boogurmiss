@@ -15,6 +15,11 @@ def check_events(settings, screen, ship, bullets):
 
         elif event.type == pygame.KEYUP:
             keyup_event(event, ship)
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_x, mouse_y = pygame.mouse.get_pos()
+            if play_button.rect.collidepoint(mouse_x, mouse_y)
+                settings.game.active = True
+
 
 
 def keydown_event(event, settings, screen, ship, bullets):
@@ -50,9 +55,14 @@ def keyup_event(event, ship):
         ship.rotate_clockwise = False
 
 
-def update_screen(settings, screen, ship, bullets, aliens):
+def update_screen(settings, screen, ship, bullets, aliens, play_button):
     # color the screen with background color
     screen.fill(settings.bg_color)
+
+    if not settings.game.active:
+        play_button
+
+    elif
 
     # draw fleet of aliens
     aliens.draw(screen)

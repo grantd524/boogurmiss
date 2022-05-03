@@ -25,13 +25,16 @@ def alien_invasion():
     aliens = Group()
     gf.create_fleet(settings, screen,ship, aliens)
 
+    #make a play button
+    play_button = Button(settings, screen, "meow")
+
     # loop to start animation
     while True:
 
         # access event handler from game_functions
-        gf.check_events(settings, screen, ship, bullets)
+        gf.check_events(settings, screen, ship, bullets, play_button)
         # updates the screen from game_functions
-        gf.update_screen(settings, screen, ship, bullets, aliens)
+        gf.update_screen(settings, screen, ship, bullets, aliens, play_button)
 
 
 
